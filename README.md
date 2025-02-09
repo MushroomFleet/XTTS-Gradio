@@ -1,4 +1,5 @@
 # XTTS Text-to-Speech WebUI 🎤✨
+!(demo-image)[https://raw.githubusercontent.com/MushroomFleet/XTTS-Gradio/refs/heads/main/image-demo/demo.png]
 
 Welcome to the XTTS Text-to-Speech WebUI project! This project leverages a Gradio-based user interface and the state-of-the-art XTTS (Coqui TTS v2) model to generate high-quality, natural-sounding speech from text. The app is designed to work locally with GPU acceleration (via CUDA) when available, making text-to-speech conversion fast and efficient. 🚀
 
