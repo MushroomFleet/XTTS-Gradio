@@ -1,99 +1,54 @@
-# XTTS Text-to-Speech WebUI 🎤✨
+# DJZ XTTS Custom Node 🎤
 ![demo-image](https://raw.githubusercontent.com/MushroomFleet/XTTS-Gradio/refs/heads/main/image-demo/demo.png)
 
-Welcome to the XTTS Text-to-Speech WebUI project! This project leverages a Gradio-based user interface and the state-of-the-art XTTS (Coqui TTS v2) model to generate high-quality, natural-sounding speech from text. The app is designed to work locally with GPU acceleration (via CUDA) when available, making text-to-speech conversion fast and efficient. 🚀
-
----
 
 ## Overview
+The DJZ XTTS Custom Node converts input text into speech using an advanced XTTS engine. Designed for high-quality audio output, it supports multiple languages and efficiently processes audio data with PyTorch and NumPy.
 
-This project provides:
-- **Real-Time Speech Generation**: Convert text into speech using an advanced TTS model.
-- **Multi-Language Support**: Choose from a variety of languages including English, Spanish, French, German, Italian, Portuguese, Polish, Turkish, Russian, Dutch, Czech, Arabic, and Chinese (Simplified). 🌐
-- **Gradio Web Interface**: Enjoy an interactive UI with easy-to-use controls and examples for quick testing.
-- **CUDA/GPU Support**: Automatically utilizes GPU for faster processing when available. ⚡
-- **Robust Error Handling**: Clear error messages guide you in case of issues during speech generation.
+## Getting Started 🛠️
+- To clone the repository into the "/ComfyUI/custom_nodes/" folder, run:
+  git clone https://your.repository.url.git
+  (ensure the repository is placed within the "ComfyUI/custom_nodes/" directory)
+- For Windows users, execute "install-portable.bat" by double-clicking it or running it from the command prompt to install all required dependencies.
 
-The core functionality is implemented in the `app.py` file where the TTS model is initialized and integrated into the Gradio interface.
+## Features ✨
+- 🔊 **Text-to-Speech Conversion:** Generates natural-sounding audio from text.
+- ⚙️ **Dynamic Device Selection:** Automatically utilizes CUDA if available, otherwise defaults to CPU.
+- 🌐 **Multilingual Support:** Supports languages including English (en), Spanish (es), French (fr), German (de), Italian (it), Portuguese (pt), Polish (pl), Turkish (tr), Russian (ru), Dutch (nl), Czech (cs), Arabic (ar), and Chinese (zh-cn).
+- 👌 **Robust Audio Processing:** Converts and reshapes audio waveforms into PyTorch tensors for further processing.
+- 🚀 **Efficient Error Handling:** Provides clear and informative error messages when synthesis fails.
 
----
+## How It Works 🚀
+1. **Initialization:**  
+   - The `DJZ_XTTS_v1` class initializes the XTTS model using the `initialize_tts` method.
+   - It detects CUDA capability to ensure optimal performance, defaulting to CPU if CUDA is unavailable.
 
-## Features
+2. **Synthesis:**  
+   - The `synthesize` method accepts text and a language code.
+   - It synthesizes speech by invoking the XTTS model, processes the raw waveform data using NumPy, and formats it into a PyTorch tensor.
+   - If available, the model uses a default speaker to improve output consistency.
 
-- **Interactive WebUI**: Developed using [Gradio](https://gradio.app/), the interface allows users to:
-  - Input text
-  - Select a language for speech synthesis
-  - Generate and listen to the synthesized audio instantly
-- **XTTS Model Integration**: Utilizes the XTTS (Coqui TTS v2) model for natural and expressive speech output.
-- **Example Usage**: Predefined examples help you quickly see how the system works:
-  - "Hello, this is a test of the XTTS text to speech system." (English)
-  - "Bonjour, ceci est un test du système de synthèse vocale XTTS." (French)
-  - "Hola, esta es una prueba del sistema de texto a voz XTTS." (Spanish)
-- **Error Handling**: Provides user-friendly error messages if speech generation fails. 🔧
+3. **Integration:**  
+   - This node is designed to be integrated seamlessly into larger TTS pipelines.
+   - It outputs a dictionary containing the waveform tensor, sample rate, and additional metadata.
 
----
+## Dependencies 📦
+- [PyTorch](https://pytorch.org/)  
+- [NumPy](https://numpy.org/)  
+- [TTS](https://github.com/coqui-ai/TTS)  
 
-## Installation & Setup
+## Usage Instructions 📝
+- **Input:**  
+  Provide a text string and select one of the supported language codes.
+- **Output:**  
+  Receives an audio tensor along with its sample rate.
+- **Error Handling:**  
+  Detailed exceptions are raised in case of any issues during the synthesis process.
 
-Follow these steps to install and run the Gradio WebUI:
-
-1. **Prerequisites**:
-   - Python 3.8+ installed on your system.
-   - [PyTorch](https://pytorch.org/) with CUDA support for GPU acceleration (if available).
-   - [Gradio](https://gradio.app/) for the web interface.
-   - [Coqui TTS](https://github.com/coqui-ai/TTS) dependencies.
-   - FFmpeg (required for audio processing) installed and available in your system path.
-
-2. **Set Up a Virtual Environment** (optional but recommended):
-   ```bash
-   python -m venv venv
-   venv\Scripts\activate   # On Windows
-   ```
-
-3. **Install Dependencies**:
-   Install the required Python packages. You can install them using the requirements file provided:
-   ```bash
-   pip install -r requirements.txt
-   ```
-
-4. **Running the Application**:
-   - **Via Command Line**:
-     ```bash
-     python app.py
-     ```
-   - **Using the Provided Batch Script**:
-     Double-click on `run-gradio.bat` or run it from the command line:
-     ```bash
-     run-gradio.bat
-     ```
-
-5. **Accessing the Web Interface**:
-   Once the application is running, open your browser and navigate to:
-   ```
-   http://0.0.0.0:7860
-   ```
-   Enjoy the interactive TTS experience! 🎉
+## Code Structure 📂
+- **DJZ_XTTS_v1.py:**  
+  Contains the class definition for the custom node, detailing methods for initialization (`initialize_tts`) and speech synthesis (`synthesize`).
 
 ---
 
-## Project Plan & Future Enhancements
-
-Based on the project's implementation plan:
-- **Current Focus**: Establishing a robust TTS pipeline with a clean and responsive user interface.
-- **Future Enhancements**:
-  - Improved GPU memory optimization.
-  - Caching mechanisms for frequent requests.
-  - Batch processing and voice preset management.
-  - Expanded voice customization features and additional language support.
-
-For a detailed insight into the project approach, refer to the [plan.md](plan.md) file.
-
----
-
-## Troubleshooting & Support
-
-- Ensure all prerequisites are met and dependencies are correctly installed.
-- For GPU acceleration, verify that your system has the necessary NVIDIA GPU with CUDA support.
-- If you encounter issues, check the console for clear error messages and tracebacks.
-
-Happy TTS'ing! 🎙️💬
+Enjoy using the DJZ XTTS Custom Node and happy coding! 🚀🌟
