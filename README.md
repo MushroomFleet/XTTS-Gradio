@@ -7,8 +7,11 @@ The DJZ XTTS Custom Node converts input text into speech using an advanced XTTS 
 
 ## Getting Started 🛠️
 - To clone the repository into the "/ComfyUI/custom_nodes/" folder, run:
-  git clone https://your.repository.url.git
+
+- git clone https://github.com/MushroomFleet/XTTS-Gradio
+
   (ensure the repository is placed within the "ComfyUI/custom_nodes/" directory)
+
 - For Windows users, execute "install-portable.bat" by double-clicking it or running it from the command prompt to install all required dependencies.
 
 ## Features ✨
