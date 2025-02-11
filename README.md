@@ -21,6 +21,15 @@ The DJZ XTTS Custom Node converts input text into speech using an advanced XTTS 
 - 👌 **Robust Audio Processing:** Converts and reshapes audio waveforms into PyTorch tensors for further processing.
 - 🚀 **Efficient Error Handling:** Provides clear and informative error messages when synthesis fails.
 
+## Cloner Feature 🗣️
+The app now includes a **Voice Cloner** feature accessible via a dedicated "Cloner" tab. To use this feature:
+- Navigate to the "Cloner" tab in the application.
+- Enter the text you wish to clone.
+- Select the desired language.
+- Adjust the speech speed using the slider.
+- Upload a speaker reference audio file (a recording of at least 2 seconds) to guide the cloning process.
+- Click the "Clone Voice 😎" button to generate the cloned speech.
+
 ## How It Works 🚀
 1. **Initialization:**  
    - The `DJZ_XTTS_v1` class initializes the XTTS model using the `initialize_tts` method.
@@ -51,6 +60,7 @@ The DJZ XTTS Custom Node converts input text into speech using an advanced XTTS 
 ## Code Structure 📂
 - **DJZ_XTTS_v1.py:**  
   Contains the class definition for the custom node, detailing methods for initialization (`initialize_tts`) and speech synthesis (`synthesize`).
+
 
 ---
 
